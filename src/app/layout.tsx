@@ -1,6 +1,10 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import cn from 'clsx'
+
 import { Inter } from 'next/font/google'
+
+import type { Metadata } from 'next'
+import Header from '@/components/Header/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +19,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body
+        className={cn(
+          inter.className,
+          'bg-zinc-50 min-w-full min-h-screen text-zinc-800 text-base'
+        )}
+      >
+        <Header />
+        <main className='py-12 w-full  mx-auto container'>{children}</main>
+      </body>
     </html>
   )
 }

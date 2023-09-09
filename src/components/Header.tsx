@@ -20,7 +20,7 @@ const navigationLinks = [
   },
 ]
 
-export default function Header() {
+export function Header() {
   const pathname = usePathname()
   const isScrolledToTop = useIsScrollTop()
 
@@ -29,10 +29,10 @@ export default function Header() {
       className={cn(
         'sticky top-0 z-40 transition  border-b',
         isScrolledToTop && 'border-zinc-300/0',
-        !isScrolledToTop && 'border-zinc-300/50'
+        !isScrolledToTop && 'border-zinc-300/50',
       )}
     >
-      <div className='absolute inset-0 bg-zink-50/95 supports-[backdrop-filter]:bg-white/75 supports-[backdrop-filter]:backdrop-blur-lg dark:bg-slate-950/90 dark:supports-[backdrop-filter]:bg-slate-950/50' />
+      <div className='absolute inset-0 bg-zinc-200/70 backdrop-blur' />
       <div className='mx-auto flex items-center justify-center gap-4 p-4 container relative'>
         {navigationLinks.map((linkItem) => {
           const isActive = pathname === linkItem.path
@@ -41,7 +41,10 @@ export default function Header() {
             <Link
               href={linkItem.path}
               key={linkItem.path}
-              className={cn(isActive && 'text-green-300')}
+              className={cn(
+                'font-semibold min-w-[80px] hover:text-green-400',
+                isActive && 'text-green-500',
+              )}
             >
               {linkItem.title}
             </Link>

@@ -1,10 +1,12 @@
 import './globals.css'
 import cn from 'clsx'
+import Head from 'next/head'
+import Script from 'next/script'
 
 import { Inter } from 'next/font/google'
 
 import type { Metadata } from 'next'
-import Header from '@/components/Header/Header'
+import { GoHomeButton } from '@/components/GoHomeButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,14 +22,27 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <Script
+        id='tailwind-theme'
+        dangerouslySetInnerHTML={{
+          __html: `if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark')
+                  } else {
+                    document.documentElement.classList.remove('dark')
+                  }`,
+        }}
+      />
       <body
         className={cn(
           inter.className,
-          'bg-zinc-50 min-w-full min-h-screen text-zinc-800 text-base'
+          'bg-zinc-100  min-w-full min-h-screen text-zinc-800 text-base',
         )}
       >
-        <Header />
-        <main className='py-12 w-full  mx-auto container'>{children}</main>
+        <main /main>
+        <main className='relative py-12 w-full mx-auto container'>
+          <GoHomeButton />
+          {children}
+        </main>
       </body>
     </html>
   )

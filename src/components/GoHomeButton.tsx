@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { usePathname } from 'next/navigation'
-import { ArrowLeft } from 'react-feather'
+import { ArrowLeft } from 'lucide-react'
 
 export function GoHomeButton() {
   const pathname = usePathname()

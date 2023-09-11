@@ -1,12 +1,10 @@
 import './globals.css'
 import cn from 'clsx'
-import Head from 'next/head'
-import Script from 'next/script'
 
 import { Inter } from 'next/font/google'
-
 import type { Metadata } from 'next'
-import { GoHomeButton } from '@/components/GoHomeButton'
+import { Providers } from '@/components/Providers'
+import { Header } from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,28 +19,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
-      <Script
-        id='tailwind-theme'
-        dangerouslySetInnerHTML={{
-          __html: `if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark')
-                  } else {
-                    document.documentElement.classList.remove('dark')
-                  }`,
-        }}
-      />
+    <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
           inter.className,
-          'bg-zinc-100  min-w-full min-h-screen text-zinc-800 text-base',
+          'bg-zinc-100 dark:bg-zinc-700 min-w-full min-h-screen text-zinc-800 dark:text-zinc-50 text-base transition-colors duration-500',
         )}
       >
-        <main /main>
-        <main className='relative py-12 w-full mx-auto container'>
-          <GoHomeButton />
-          {children}
-        </main>
+        <Providers>
+          <Header />
+          <main className='relative py-12 w-full mx-auto container'>
+            {/* <GoHomeButton /> */}
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   )

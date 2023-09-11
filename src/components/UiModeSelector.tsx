@@ -1,5 +1,5 @@
 import React from 'react'
-import { Sun, Moon } from 'react-feather'
+import { Sun, Moon } from 'lucide-react'
 import cn from 'clsx'
 
 interface UiModeSelectorProps {
@@ -8,11 +8,11 @@ interface UiModeSelectorProps {
 
 enum Themes {
   Dark = 'dark',
-  Light = 'light'
+  Light = 'light',
 }
 
-export const UiModeSelector  className }: UiModeSelectorProps) => {
-  const theme = localStorage.getItem('theme') || Theme
+export const UiModeSelector = ({ className }: UiModeSelectorProps) => {
+  const theme = localStorage.getItem('theme') || Themes.Light
   const Icon = theme === 'dark' ? Moon : Sun
 
   return (

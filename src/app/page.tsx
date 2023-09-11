@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CareerSummary } from '@/components/CareerSummary'
-import { ContactsWidget } from '@/components/ContactsWidget'
 
 import { allPosts, Post } from 'contentlayer/generated'
 import parseISO from 'date-fns/parseISO'
 import format from 'date-fns/format'
 import compareDesc from 'date-fns/compareDesc'
+import { AtSign, Github, Linkedin, Twitter, FileText } from 'lucide-react'
+import { PersonalIntroduction } from '@/components/PersonalIntroduction'
 
 export default function AboutPage() {
   const posts = allPosts.sort((a, b) =>
@@ -14,54 +14,44 @@ export default function AboutPage() {
   )
 
   return (
-    <div className='grid grid-cols-5 gap-4'>
-      <div className='col-span-full mb-8'>
-        <div className='flex items-center gap-8 mb-8'>
-          <Image
-            src='/img/avatar.jpg'
-            width={152}
-            height={152}
-            alt='Avatar'
-            className='rounded-full relative flex-shrink-0'
-          />
-
-          <div>
-            <div className=''>Hello, my name is</div>
-            <h2 className='text-5xl font-bold mb-4'>Sergei Iakovlev</h2>
-            <div className='text-zinc-500'>
-              I am a software engineer and Neovim entusiast interested in
-              philosophy, stoicism and psychology. Armenian born and raised in
-              Russia, currently living in Barcelona, Spain. I can proudly call
-              myself not only software engineer and frontend developer, but also
-              product engineer. I genuinely like to write code and everything
-              around it.
-            </div>
-          </div>
+    <div className=''>
+      <div className='col-span-full mb-6'></div>
+      <PersonalIntroduction className='mb-12' />
+      <div className=''>
+        <div className='flex items-center gap-2 mb-8 border-b pb-4'>
+          <FileText size={32} />
+          <h2 className='text-xl font-medium'>Blog Posts</h2>
         </div>
-      </div>
-      <div className='col-span-3 row-span-2'>
         {posts.map((post: Post) => (
-          <div className='mb-8' key={post._id}>
-            <h2 className='mb-1 text-xl'>
-              <Link
-                href={post.url}
-                className='text-blue-700 hover:text-blue-900 dark:text-blue-400'
+          <div className='flex gap-6 mb-8 ' key={post._id}>
+            <div className='w-52 h-32 relative rounded-xl overflow-hidden shrink-0'>
+              <Image
+                alt='Article cover image'
+                src={post.cover}
+                fill
+                className='object-cover shrink-0'
+              />
+            </div>
+            <div>
+              <h2 className='mb-1 text-xl'>
+                <Link
+                  href={post.url}
+                  className='text-blue-700 hover:text-blue-900 dark:text-blue-400'
+                >
+                  {post.title}
+                </Link>
+              </h2>
+              <time
+                dateTime={post.date}
+                className='mb-2 block text-xs text-gray-600'
               >
-                {post.title}
-              </Link>
-            </h2>
-            <time
-              dateTime={post.date}
-              className='mb-2 block text-xs text-gray-600'
-            >
-              {format(parseISO(post.date), 'LLLL d, yyyy')}
-            </time>
-            <div>{post.description}</div>
+                {format(parseISO(post.date), 'LLLL d, yyyy')}
+              </time>
+              <div>{post.description}</div>
+            </div>
           </div>
         ))}
       </div>
-      <ContactsWidget className='col-span-2' />
-      <CareerSummary className='col-span-2' />
     </div>
   )
 }

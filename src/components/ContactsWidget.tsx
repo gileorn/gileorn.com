@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  AtSign,
-  Facebook,
-  GitHub,
-  Linkedin,
-  Twitter,
-  User,
-} from 'react-feather'
+import { AtSign, Facebook, Github, Linkedin, Twitter, User } from 'lucide-react'
 import { Widget } from './Widget'
 import Link from 'next/link'
 
@@ -35,7 +28,7 @@ export function ContactsWidget({ className }: ContactsWidgetProps) {
           <Linkedin width={32} height={32} />
         </Link>
         <Link href='https://github.com/gileorn' className='hover:text-zinc-500'>
-          <GitHub width={32} height={32} />
+          <Github width={32} height={32} />
         </Link>
         <Link
           href='https://twitter.com/gileorn'

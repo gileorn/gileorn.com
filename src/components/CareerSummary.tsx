@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Briefcase } from 'react-feather'
+import { Briefcase } from 'lucide-react'
 import { Widget } from './Widget'
 
 const data = [

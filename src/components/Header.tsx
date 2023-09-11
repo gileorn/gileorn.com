@@ -1,56 +1,77 @@
 'use client'
 
-import { useIsScrollTop } from '@/hooks/useIsScrolledToTop'
-import cn from 'clsx'
-import Link from 'next/link'
+import React from 'react'
 import { usePathname } from 'next/navigation'
+import {
+  Navbar,
+  NavbarMenuItem,
+  NavbarMenu,
+  // NavbarContent,
+  NavbarItem,
+  Link,
+  NavbarMenuToggle,
+  Avatar,
+} from '@nextui-org/react'
 
-const navigationLinks = [
-  {
-    path: '/about',
-    title: 'About',
-  },
-  {
-    path: '/posts',
-    title: 'Posts',
-  },
-  {
-    path: '/uses',
-    title: 'Uses',
-  },
-]
+import { Routes } from '@/routes'
+import { ThemeSwitch } from './ThemeSwitch'
 
-export function Header() {
+export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const pathname = usePathname()
-  const isScrolledToTop = useIsScrollTop()
 
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-40 transition  border-b',
-        isScrolledToTop && 'border-zinc-300/0',
-        !isScrolledToTop && 'border-zinc-300/50',
-      )}
+    <Navbar
+      isBlurred={false}
+      onMenuOpenChange={setIsMenuOpen}
+      classNames={{
+        base: 'light:bg-zinc-50 dark:bg-zinc-600',
+        toggle: 'order-last',
+        menu: 'bg-zinc-50',
+        item: [
+          'dark:data-[active=true]:text-sky-400 data-[active=true]:text-blue-500',
+        ],
+        content: 'justify-between',
+      }}
     >
-      <div className='absolute inset-0 bg-zinc-200/70 backdrop-blur' />
-      <div className='mx-auto flex items-center justify-center gap-4 p-4 container relative'>
-        {navigationLinks.map((linkItem) => {
-          const isActive = pathname === linkItem.path
-
+      <Link href='/'>
+        <Avatar
+          src='/img/avatars/2.jpeg'
+          isBordered
+          radius='full'
+          size='sm'
+          className='mr-4'
+          classNames={{ base: 'ring-zinc-300 dark:ring-zinc-500' }}
+        />
+      </Link>
+      <NavbarMenuToggle
+        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        className='sm:hidden'
+      />
+      <div className='hidden sm:flex gap-8'>
+        {Routes.map((route) => {
+          const isActive = pathname === route.path
           return (
-            <Link
-              href={linkItem.path}
-              key={linkItem.path}
-              className={cn(
-                'font-semibold min-w-[80px] hover:text-green-400',
-                isActive && 'text-green-500',
-              )}
-            >
-              {linkItem.title}
-            </Link>
+            <NavbarItem key={route.path} isActive={isActive}>
+              <Link href={route.path} className='text-inherit'>
+                {route.name}
+              </Link>
+            </NavbarItem>
           )
         })}
       </div>
-    </header>
+
+      <ThemeSwitch />
+
+      <NavbarMenu>
+        {Routes.map((route) => (
+          <NavbarMenuItem key={route.path}>
+            <Link className='w-full' href={route.path} size='lg'>
+              {route.name}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   )
 }

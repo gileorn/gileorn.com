@@ -2,6 +2,7 @@
 title: How I created my very own developer blog
 description: Step-by-step walkthrough of how I created a smiple static blog with React, Next.js, Tailwind.css and Contentlayer
 date: 2023-09-21
+cover: /img/posts/create-blog/cover.jpg
 ---
 
 ## Used technologies and libraries

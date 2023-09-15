@@ -6,7 +6,6 @@ import {
   Navbar,
   NavbarMenuItem,
   NavbarMenu,
-  // NavbarContent,
   NavbarItem,
   Link,
   NavbarMenuToggle,
@@ -15,63 +14,70 @@ import {
 
 import { Routes } from '@/routes'
 import { ThemeSwitch } from './ThemeSwitch'
+import { useIsScrollTop } from '@/hooks/useIsScrolledToTop'
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const isScrolledToTop = useIsScrollTop()
   const pathname = usePathname()
 
   return (
     <Navbar
+      shouldHideOnScroll
       isBlurred={false}
+      isBordered={!isScrolledToTop}
       onMenuOpenChange={setIsMenuOpen}
       classNames={{
-        base: 'light:bg-zinc-50 dark:bg-zinc-600',
+        base: 'mx-auto bg-background dark:bg-dark-background transition-colors duration-500',
         toggle: 'order-last',
         menu: 'bg-zinc-50',
         item: [
-          'dark:data-[active=true]:text-sky-400 data-[active=true]:text-blue-500',
+          'dark:data-[active=true]:text-dark-accent data-[active=true]:text-accent',
+          'text-main dark:text-dark-main',
         ],
-        content: 'justify-between',
+        content: 'max-w-screen-md mx-auto justify-between',
       }}
     >
-      <Link href='/'>
-        <Avatar
-          src='/img/avatars/2.jpeg'
-          isBordered
-          radius='full'
-          size='sm'
-          className='mr-4'
-          classNames={{ base: 'ring-zinc-300 dark:ring-zinc-500' }}
+      <div className='max-w-screen-md mx-auto justify-between flex items-center flex-grow h-full'>
+        <Link href='/'>
+          <Avatar
+            src='/img/avatars/2.jpeg'
+            isBordered
+            radius='full'
+            size='sm'
+            className='mr-4'
+            classNames={{ base: 'ring-zinc-300 dark:ring-zinc-500' }}
+          />
+        </Link>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          className='sm:hidden'
         />
-      </Link>
-      <NavbarMenuToggle
-        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-        className='sm:hidden'
-      />
-      <div className='hidden sm:flex gap-8'>
-        {Routes.map((route) => {
-          const isActive = pathname === route.path
-          return (
-            <NavbarItem key={route.path} isActive={isActive}>
-              <Link href={route.path} className='text-inherit'>
+        <div className='hidden sm:flex gap-8'>
+          {Routes.map((route) => {
+            const isActive = pathname === route.path
+            return (
+              <NavbarItem key={route.path} isActive={isActive}>
+                <Link href={route.path} className='text-inherit'>
+                  {route.name}
+                </Link>
+              </NavbarItem>
+            )
+          })}
+        </div>
+
+        <ThemeSwitch />
+
+        <NavbarMenu>
+          {Routes.map((route) => (
+            <NavbarMenuItem key={route.path}>
+              <Link className='w-full' href={route.path} size='lg'>
                 {route.name}
               </Link>
-            </NavbarItem>
-          )
-        })}
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
       </div>
-
-      <ThemeSwitch />
-
-      <NavbarMenu>
-        {Routes.map((route) => (
-          <NavbarMenuItem key={route.path}>
-            <Link className='w-full' href={route.path} size='lg'>
-              {route.name}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
     </Navbar>
   )
 }

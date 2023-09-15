@@ -15,7 +15,8 @@ export const ThemeSwitch = () => {
     <Switch
       size='lg'
       classNames={{
-        wrapper: 'group-data-[selected=true]:bg-indigo-500 dark:bg-indigo-400',
+        wrapper: 'group-data-[selected=true]:bg-accent dark:bg-dark-accent',
+        thumb: 'bg-zinc-50',
       }}
       isSelected={mounted && theme === 'light'}
       onValueChange={(value) => setTheme(value ? 'light' : 'dark')}

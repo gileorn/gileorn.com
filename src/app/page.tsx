@@ -5,7 +5,7 @@ import { allPosts, Post } from 'contentlayer/generated'
 import parseISO from 'date-fns/parseISO'
 import format from 'date-fns/format'
 import compareDesc from 'date-fns/compareDesc'
-import { AtSign, Github, Linkedin, Twitter, FileText } from 'lucide-react'
+import { FileText } from 'lucide-react'
 import { PersonalIntroduction } from '@/components/PersonalIntroduction'
 
 export default function AboutPage() {
@@ -23,7 +23,10 @@ export default function AboutPage() {
           <h2 className='text-xl font-medium'>Blog Posts</h2>
         </div>
         {posts.map((post: Post) => (
-          <div className='flex gap-6 mb-8 ' key={post._id}>
+          <div
+            className='flex gap-6 mb-8 hover:bg-foreground dark:hover:bg-dark-foreground  p-4 rounded-xl cursor-pointer'
+            key={post._id}
+          >
             <div className='w-52 h-32 relative rounded-xl overflow-hidden shrink-0'>
               <Image
                 alt='Article cover image'
@@ -34,16 +37,13 @@ export default function AboutPage() {
             </div>
             <div>
               <h2 className='mb-1 text-xl'>
-                <Link
-                  href={post.url}
-                  className='text-blue-700 hover:text-blue-900 dark:text-blue-400'
-                >
+                <Link href={post.url} className='text-acc text-hv'>
                   {post.title}
                 </Link>
               </h2>
               <time
                 dateTime={post.date}
-                className='mb-2 block text-xs text-gray-600'
+                className='mb-2 block text-xs text-secondary dark:text-dark-secondary'
               >
                 {format(parseISO(post.date), 'LLLL d, yyyy')}
               </time>

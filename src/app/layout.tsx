@@ -23,12 +23,12 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
-          'bg-zinc-100 dark:bg-zinc-700 min-w-full min-h-screen text-zinc-800 dark:text-zinc-50 text-base transition-colors duration-500',
+          'bg-background dark:bg-dark-background min-h-screen text-mn text-base transition-colors duration-500',
         )}
       >
         <Providers>
           <Header />
-          <main className='relative py-12 w-full mx-auto container'>
+          <main className='relative py-12 w-full mx-auto max-w-screen-md px-4'>
             {/* <GoHomeButton /> */}
             {children}
           </main>

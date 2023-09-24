@@ -1,5 +1,5 @@
 ---
-title: Create your own developer blog from scratch with Next.js
+title: Lorem ipsum dolor sit amet hello there
 description: Step-by-step walkthrough of how I created a smiple static blog with React, Next.js, Tailwind.css and Contentlayer
 date: 2023-09-21
 tags: ['React', 'Next.js', 'Tailwind']

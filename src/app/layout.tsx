@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
-          <main className='relative py-12 w-full mx-auto max-w-screen-md px-4'>
+          <main className='relative py-6 md:py-12 w-full mx-auto max-w-screen-md px-4'>
             {/* <GoHomeButton /> */}
             {children}
           </main>

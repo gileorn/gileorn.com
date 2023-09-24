@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import cn from 'clsx'
 import { usePathname } from 'next/navigation'
 import {
   Navbar,
@@ -9,12 +10,12 @@ import {
   NavbarItem,
   Link,
   NavbarMenuToggle,
-  Avatar,
 } from '@nextui-org/react'
 
 import { Routes } from '@/routes'
 import { ThemeSwitch } from './ThemeSwitch'
 import { useIsScrollTop } from '@/hooks/useIsScrolledToTop'
+import { ConditionalBadge } from './ConditionalBadge'
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -28,9 +29,9 @@ export const Header = () => {
       isBordered={!isScrolledToTop}
       onMenuOpenChange={setIsMenuOpen}
       classNames={{
-        base: 'mx-auto bg-background dark:bg-dark-background transition-colors duration-500',
+        base: 'mx-auto transition-colors duration-500',
         toggle: 'order-last',
-        menu: 'bg-zinc-50',
+        menu: 'text-main bg-inherit',
         item: [
           'dark:data-[active=true]:text-dark-accent data-[active=true]:text-accent',
           'text-main dark:text-dark-main',
@@ -39,16 +40,16 @@ export const Header = () => {
       }}
     >
       <div className='max-w-screen-md mx-auto justify-between flex items-center flex-grow h-full'>
-        <Link href='/'>
-          <Avatar
-            src='/img/avatars/2.jpeg'
-            isBordered
-            radius='full'
-            size='sm'
-            className='mr-4'
-            classNames={{ base: 'ring-zinc-300 dark:ring-zinc-500' }}
-          />
-        </Link>
+        {/* <Link href='/'> */}
+        {/*   <Avatar */}
+        {/*     src='/img/avatars/2.jpeg' */}
+        {/*     isBordered */}
+        {/*     radius='full' */}
+        {/*     size='sm' */}
+        {/*     className='mr-4' */}
+        {/*     classNames={{ base: 'ring-zinc-300 dark:ring-zinc-500' }} */}
+        {/*   /> */}
+        {/* </Link> */}
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className='sm:hidden'
@@ -56,11 +57,20 @@ export const Header = () => {
         <div className='hidden sm:flex gap-8'>
           {Routes.map((route) => {
             const isActive = pathname === route.path
+            // const isDisabled = route.disabled
+            const isDisabled = false
+
             return (
               <NavbarItem key={route.path} isActive={isActive}>
-                <Link href={route.path} className='text-inherit'>
-                  {route.name}
-                </Link>
+                <ConditionalBadge showBadge={isDisabled} content='soon'>
+                  <Link
+                    href={route.path}
+                    isDisabled={isDisabled}
+                    className='text-inherit text-lg'
+                  >
+                    {route.name}
+                  </Link>
+                </ConditionalBadge>
               </NavbarItem>
             )
           })}
@@ -69,13 +79,28 @@ export const Header = () => {
         <ThemeSwitch />
 
         <NavbarMenu>
-          {Routes.map((route) => (
-            <NavbarMenuItem key={route.path}>
-              <Link className='w-full' href={route.path} size='lg'>
-                {route.name}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+          {Routes.map((route) => {
+            const isActive = pathname === route.path
+            // const isDisabled = route.disabled
+            const isDisabled = false
+
+            return (
+              <NavbarMenuItem key={route.path}>
+                <ConditionalBadge showBadge={isDisabled} content='soon'>
+                  <Link
+                    className={cn(
+                      'w-full text-main text-xl',
+                      isActive && 'text-accent',
+                    )}
+                    isDisabled={isDisabled}
+                    href={route.path}
+                  >
+                    {route.name}
+                  </Link>
+                </ConditionalBadge>
+              </NavbarMenuItem>
+            )
+          })}
         </NavbarMenu>
       </div>
     </Navbar>

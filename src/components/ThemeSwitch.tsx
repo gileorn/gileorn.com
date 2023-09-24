@@ -15,7 +15,7 @@ export const ThemeSwitch = () => {
     <Switch
       size='lg'
       classNames={{
-        wrapper: 'group-data-[selected=true]:bg-accent dark:bg-dark-accent',
+        wrapper: 'group-data-[selected=true]:bg-accent bg-accent',
         thumb: 'bg-zinc-50',
       }}
       isSelected={mounted && theme === 'light'}

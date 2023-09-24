@@ -16,20 +16,49 @@
   }
 }
 
-@layer components {
-  .text-mn {
-    @apply text-main dark:text-dark-main;
+@layer utilities {
+  /* --- text --- */
+  .text-main {
+    @apply text-m-main dark:text-m-dark-main;
+  }
+  .text-accent {
+    @apply text-m-accent dark:text-m-dark-accent;
+  }
+  .text-accent2 {
+    @apply text-m-accent2 dark:text-m-dark-accent2;
+  }
+  .text-hover {
+    @apply hover:text-m-hover dark:hover:text-m-dark-hover;
+  }
+  .text-accent.text-hover {
+    @apply hover:text-m-accent-hover dark:hover:text-m-dark-accent-hover;
+  }
+  .text-secondary {
+    @apply text-m-secondary dark:text-m-dark-secondary;
   }
 
-  .text-acc {
-    @apply text-accent dark:text-dark-accent;
+  /* --- background --- */
+  .bg-background {
+    @apply bg-m-background dark:bg-m-dark-background;
+  }
+  .bg-foreground {
+    @apply bg-m-foreground dark:bg-m-dark-foreground;
+  }
+  .bg-accent {
+    @apply bg-m-accent dark:bg-m-dark-accent;
+  }
+  .bg-accent2 {
+    @apply bg-m-accent2 dark:bg-m-dark-accent2;
   }
 
-  .text-hv {
-    @apply hover:text-hover dark:hover:text-dark-hover;
+  /* --- effects ---  */
+  .glow-normal {
+    filter: drop-shadow(4px 6px 20px theme(colors.m-accent/60%));
   }
-
-  .text-acc.text-hv {
-    @apply hover:text-accent-hover dark:hover:text-accent-dark-hover;
+  .glow-dark {
+    filter: drop-shadow(4px 6px 20px theme(colors.m-dark-accent/60%));
+  }
+  .glow {
+    @apply glow-normal dark:glow-dark;
   }
 }

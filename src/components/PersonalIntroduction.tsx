@@ -27,7 +27,7 @@ export const PersonalIntroduction = ({ className }: { className?: string }) => (
     <div className='text-center md:text-left'>
       <div className=''>Hello, my name is</div>
       <h2 className='text-5xl font-bold mb-4'>Sergei Iakovlev</h2>
-      <div className='text-secondary dark:text-dark-secondary mb-4'>
+      <div className='text-secondary mb-4'>
         I am a software engineer and Neovim entusiast interested in philosophy,
         stoicism and psychology. Armenian born and raised in Russia, currently
         living in Barcelona, Spain.
@@ -36,10 +36,10 @@ export const PersonalIntroduction = ({ className }: { className?: string }) => (
         <Popover
           placement='bottom'
           backdrop='blur'
-          classNames={{ base: 'bg-background dark:bg-dark-background' }}
+          classNames={{ base: 'bg-background' }}
         >
           <PopoverTrigger onClick={() => navigator.clipboard.writeText(EMAIL)}>
-            <div className='hover:text-hover dark:hover:text-dark-hover cursor-pointer relative'>
+            <div className='text-hover cursor-pointer relative transition-colors'>
               <AtSign width={32} height={32} />
             </div>
           </PopoverTrigger>
@@ -52,19 +52,19 @@ export const PersonalIntroduction = ({ className }: { className?: string }) => (
         </Popover>
         <Link
           href='https://www.linkedin.com/in/iakovlev-sv/'
-          className='hover:text-hover dark:hover:text-dark-hover'
+          className='text-hover transition-colors'
         >
           <Linkedin width={32} height={32} />
         </Link>
         <Link
           href='https://github.com/gileorn'
-          className='hover:text-hover dark:hover:text-dark-hover'
+          className='text-hover transition-colors'
         >
           <Github width={32} height={32} />
         </Link>
         <Link
           href='https://twitter.com/gileorn'
-          className='hover:text-hover dark:hover:text-dark-hover'
+          className='text-hover transition-colors'
         >
           <Twitter width={32} height={32} />
         </Link>

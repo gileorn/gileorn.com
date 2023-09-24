@@ -43,8 +43,11 @@ const Post = ({ post }: { post: Post }) => (
   >
     <div className='flex flex-col gap-2 md:flex-row md:gap-6'>
       <div>
-        <h2 className='mb-1 text-xl'>
-          <div className='text-accent2 text-hv'>{post.title}</div>
+        <h2 className='text-xl'>
+          <div className='font-bold text-accent'>
+            {/* <div className='underline decoration-solid decoration-m-accent underline-offset-2 font-bold text-accent'> */}
+            {post.title}
+          </div>
         </h2>
         <time
           dateTime={post.date}
@@ -53,29 +56,17 @@ const Post = ({ post }: { post: Post }) => (
           {format(parseISO(post.date), 'LLLL d, yyyy')}
         </time>
         {post.tags && (
-          <div className='flex gap-2'>
+          <div className='flex gap-2 mb-2'>
             {post.tags?.map((tag) => (
               <div
                 key={tag}
-                className='rounded-full text-tiny px-2 py-0 bg-accent text-zinc-800'
+                className='rounded-[4px] text-tiny px-2 py-0 bg-zinc-300 text-zinc-800'
               >
                 {tag}
               </div>
             ))}
           </div>
         )}
-        {/* {post.tags && ( */}
-        {/*   <div className='flex gap-2'> */}
-        {/*     {post.tags?.map((tag) => ( */}
-        {/*       <div */}
-        {/*         key={tag} */}
-        {/*         className='rounded-full text-tiny px-2 py-0 bg-zinc-300 text-zinc-800' */}
-        {/*       > */}
-        {/*         {tag} */}
-        {/*       </div> */}
-        {/*     ))} */}
-        {/*   </div> */}
-        {/* )} */}
         <div>{post.description}</div>
       </div>
       <PostStats post={post} />
@@ -87,8 +78,8 @@ export const PostTeaser = ({ post }: { post: Post }) => (
   <ConditionalBadge content='Coming soon' showBadge>
     <div className='flex gap-6 mb-4 bg-foreground p-4 rounded-xl w-full'>
       <div>
-        <h2 className='mb-1 text-xl'>
-          <div className='text-acc text-hv'>{post.title}</div>
+        <h2 className='text-xl'>
+          <div className='font-bold text-secondary'>{post.title}</div>
         </h2>
         {/* <div>{post.description}</div> */}
       </div>
@@ -104,8 +95,7 @@ export const PostsList = () => {
   return (
     <div>
       {posts.map((post: Post) => {
-        // if (post.teaser) return <PostTeaser key={post._id} post={post} />
-        if (post.teaser) return null
+        if (post.teaser) return <PostTeaser key={post._id} post={post} />
 
         return <Post key={post._id} post={post} />
       })}

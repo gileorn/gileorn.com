@@ -6,12 +6,12 @@ export const Routes = [
   {
     path: '/posts',
     name: 'Posts',
-    // disabled: true,
+    disabled: true,
   },
   {
     path: '/appearances',
     name: 'Appearances',
-    // disabled: true,
+    disabled: true,
   },
   // {
   //   path: '/bookmarks',

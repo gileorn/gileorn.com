@@ -39,17 +39,7 @@ export const Header = () => {
         content: 'max-w-screen-md mx-auto justify-between',
       }}
     >
-      <div className='max-w-screen-md mx-auto justify-between flex items-center flex-grow h-full'>
-        {/* <Link href='/'> */}
-        {/*   <Avatar */}
-        {/*     src='/img/avatars/2.jpeg' */}
-        {/*     isBordered */}
-        {/*     radius='full' */}
-        {/*     size='sm' */}
-        {/*     className='mr-4' */}
-        {/*     classNames={{ base: 'ring-zinc-300 dark:ring-zinc-500' }} */}
-        {/*   /> */}
-        {/* </Link> */}
+      <div className='max-w-screen-md mx-auto justify-between flex items-center flex-grow h-full md:px-4'>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className='sm:hidden'
@@ -57,8 +47,7 @@ export const Header = () => {
         <div className='hidden sm:flex gap-8'>
           {Routes.map((route) => {
             const isActive = pathname === route.path
-            // const isDisabled = route.disabled
-            const isDisabled = false
+            const isDisabled = route.disabled
 
             return (
               <NavbarItem key={route.path} isActive={isActive}>
@@ -81,23 +70,19 @@ export const Header = () => {
         <NavbarMenu>
           {Routes.map((route) => {
             const isActive = pathname === route.path
-            // const isDisabled = route.disabled
-            const isDisabled = false
+            const isDisabled = route.disabled
 
             return (
               <NavbarMenuItem key={route.path}>
-                <ConditionalBadge showBadge={isDisabled} content='soon'>
-                  <Link
-                    className={cn(
-                      'w-full text-main text-xl',
-                      isActive && 'text-accent',
-                    )}
-                    isDisabled={isDisabled}
-                    href={route.path}
-                  >
+                <Link
+                  className={cn('text-main text-xl', isActive && 'text-accent')}
+                  isDisabled={isDisabled}
+                  href={route.path}
+                >
+                  <ConditionalBadge showBadge={isDisabled} content='soon'>
                     {route.name}
-                  </Link>
-                </ConditionalBadge>
+                  </ConditionalBadge>
+                </Link>
               </NavbarMenuItem>
             )
           })}

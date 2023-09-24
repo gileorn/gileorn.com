@@ -1,0 +1,55 @@
+---
+title: Create your own developer blog from scratch with Next.js
+description: Step-by-step walkthrough of how I created a smiple static blog with React, Next.js, Tailwind.css and Contentlayer
+date: 2023-09-21
+tags: ['React', 'Next.js', 'Tailwind', 'AWS', 'Vercel']
+---
+
+## Used technologies and libraries
+
+- React and Next.js
+- Contentlayer
+- Tailwind.css
+
+## MVP functionality
+
+I started off with many ideas of what I'd like to see in my blog. As in any real life project, eventually I decided to not overcomplicate things and start with the minimum functionality:
+
+- Home page with some basic info about me, including a small widget about my career and social link
+- Post page with markdown content and comments based on GitHub profile
+
+---
+
+## Codes
+
+We can write some `inline code`!
+
+```js:sample.js showLineNumbers
+const a = 1;
+a = 2;
+```
+
+```tsx:App.tsx showLineNumbers {5,15-17}
+import "@/styles/globals.css";
+
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { ThemeProvider } from "next-themes";
+
+import LayoutWrapper from "@/components/LayoutWrapper";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider attribute="class">
+      <Head>
+        <meta name="viewport" content="viewport-fit=cover" />
+      </Head>
+      <LayoutWrapper>
+        <Component {...pageProps} />
+      </LayoutWrapper>
+    </ThemeProvider>
+  );
+}
+
+export default MyApp;
+```

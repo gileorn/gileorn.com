@@ -22,6 +22,7 @@ import { allPosts } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { PostSidebar } from '@/components/PostSidebar'
 import { PostHeading } from '@/components/PostHeading'
+import { CommentSection } from '@/components/CommentSection'
 
 export const generateStaticParams = () =>
   allPosts.map((post) => ({ post: post._raw.flattenedPath }))
@@ -69,6 +70,7 @@ const PostLayout = ({ params }: { params: { post: string } }) => {
           <MDXContent components={mdxComponents} />
         </article>
       </div>
+      <CommentSection />
     </div>
   )
 }

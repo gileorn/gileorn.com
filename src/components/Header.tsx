@@ -36,10 +36,10 @@ export const Header = () => {
           'dark:data-[active=true]:text-dark-accent data-[active=true]:text-accent',
           'text-main dark:text-dark-main',
         ],
-        content: 'max-w-screen-md mx-auto justify-between',
+        content: 'max-w-screen-lg mx-auto justify-between',
       }}
     >
-      <div className='max-w-screen-md mx-auto justify-between flex items-center flex-grow h-full md:px-4'>
+      <div className='max-w-screen-lg mx-auto justify-between flex items-center flex-grow h-full '>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className='sm:hidden'

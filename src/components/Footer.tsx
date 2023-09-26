@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 
 export const Footer = () => (
-  <div className='relative py-6 md:py-12 w-full mx-auto max-w-screen-md px-4'>
+  <div className='relative py-6 md:py-12 w-full mx-auto max-w-screen-lg px-6'>
     <div className='border-b border mb-8' />
     <div className='flex justify-between items-center gap-4'>
       <div>

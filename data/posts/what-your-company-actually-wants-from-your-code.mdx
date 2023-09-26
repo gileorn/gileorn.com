@@ -1,0 +1,148 @@
+---
+title: 'What your company actually wants from your code'
+description: 'Transcript of a live presentation at Manychat Product Engineering Meetup on June 15 in Barcelona, Spain.'
+date: 2023-07-21
+tags: ['Scrum', 'Development', 'Product Engineer']
+---
+
+## Intro: Realities of the Tech industry in 2023
+
+To start things off, I want first to zoom out and take a look at the bigger picture of the tech industry these days. As you might have heard, many tech companies are experiencing a lot of challenges with the current economic uncertainty.   Startups shut down, and people get laid off, even at big tech companies. These are rough times for the industry. While we’re still in the middle of the storm, it is essential to receive the support that is such needed for all of us.
+
+It’s great to be a part of a company that cares about its employees and proves it not just by words but by actions. But companies themselves are experiencing hard times. Shouldn’t this support be mutual? I’m not talking about working more hours or being paid less money. I just got interested in the whole idea that the current situation is a good trigger to ask ourselves:
+
+> How can I do my job better?
+
+And you might say that for developers, this goes down to just:
+
+> How can I write better code?
+
+But how can we say for sure that good code translates to bigger results for the company? And even aside from that, good code is a very subjective thing that developers can argue indefinitely. In Manychat, we believe that developers are not just coders but product engineers. And for product engineers, code is only the instrument that helps us to achieve the results we seek. So I found a better version of this question:
+
+> How can my code bring more value to the company?
+
+But let’s pause for a moment; we will come back to that shortly. Since I’ll be talking from a Manychat employee perspective, I want first to let you know why you should care about what will be said later and why our experience can be insightful for you. Manychat is a Chat Marketing Platform. Our mission is to help businesses grow by building meaningful relationships with their customers. We are the most used Chat Marketing platform, and more than one billion conversations are powered by Manychat every year. Also, more than one million businesses choose Manychat to grow across more than 190 countries. I hope these things tell you a short about us.
+
+## What your company actually wants from your code?
+
+Since we’re now talking about the impact on the business, we can’t make any assumptions based on just what developers think. To expand our view with relevant context, we should ask this question to Product Owners. A Product Owner acts as a primary link between a development team and stakeholders, ensuring that the right product is built to meet customer needs and achieve business goals. They are exactly what we need to gain insights into how code and its different qualities affect the business. I conducted interviews with four product owners from Manychat, seeking their perspectives on how code can bring more value to the company. I spent 30 minutes with each discussing their ideal vision, as well as what their expectations and struggles are.
+After processing their answers, I ended up with 3 categories:
+
+- Adding more features
+- Complexity and maintenance
+- Impact on the future
+
+### Adding more features
+
+> Code and its quality should be suitable for specific situations: both quick throw-away experiments and strategic initiatives are possible.
+> Code shouldn’t be tightly coupled with other code unless it is necessary, so it doesn’t increase the resources required to make changes and introduce new features.
+> Code should represent a contribution to an integral part of the system that can be further maintained and enriched with new features.
+
+### Complexity and maintenance
+
+> Code should have technical complexity that is adequate to the problem that it was created to solve.
+> Code needs to be as simple as possible but not hinder long-term project stability
+> Code should not require any resources to keep it working once it is shipped on production.
+> Code should affect the project’s complexity only in a positive or neutral way, not increasing maintenance cost
+
+### Impact on the future
+
+> If possible, code needs to make future contributions easier by creating reusable modules of high quality.
+
+> Code should allow the business to grow and scale: both in terms of technical aspects and in terms of adding more developers to the team
+> Code should use various technical innovations that would affect the product in a positive way, such as speeding up the development speed, improving performance, enhancing features, and so on.
+
+### What do we do with it?
+
+We’ve just in some way answered a question, “What your company actually wants from your code,”, and if we want to brief the answer is A LOT. They want a lot of things, and many of these sound like they’re not from the real world we live in. So, you might ask - what do we do with this? And this is where the second and more practical part of my talk comes in. “What your company actually wants from your code … and how you can keep up with their expectations”. I will continue exploring this subject from the standpoint of a product engineer working at Manychat. My goal for this section will be to outline the practices we use at Manychat to create one of the best products on the market.
+
+## How to keep up with what your company expects
+
+To start things off, I should say that in our paradigm, there’s not much you can do as an individual contributor. It is company-wide practices and processes here that really matter and affect our end result the most. One-man-army is a great strategy for some cases, but it is not scalable, so it is not for us. To understand what helps us keep up with POs expectations I conducted yet another set of interviews, but this time with four engineering managers from Manychat, seeking their perspective on how we keep up with such high expectations of Product Owners. I spent 30 minutes with each discussing their ideal vision, some previous struggles, latest accomplishments, and challenges ahead. And these conversations resulted in four things that help us achieve bigger results as a company and comply with what our POs expect. We will go over each one of these, starting with the simpler ones and ending with more complex stuff.
+
+### Product area leads
+
+In our company’s structure, product area is a group of several cross-functional teams working on the same product part that are trying to achieve the same key results for the company. Our cross-functional teams usually include two frontend and backend developers and one designer. The product area also has one or several product owners working tightly with the teams in the area. And here is where Product area leads come in.
+They are highly skilled frontend and backend developers that help cross-functional teams and product owners achieve their goals. Among other things, they:
+
+- Mentor developers in the product area
+- Provide deep knowledge and expertise of both product and codebase
+- Give managers insights on the performance of the developers in the product area
+- Help teams to stay on track with the objectives and key results we’re trying to achieve as a company and secure the long-term product vision
+
+As a result, Product Area Leads ensure that the technical decisions we make are aligned with our long-term strategy for business and our codebase.
+
+### Architectural retro
+
+When we encounter some kind of a big problem that was caused by our technical decisions, we decompose it by answering four questions:
+
+1. What happened
+1. Why it happened
+1. How we could have avoided it
+1. How we can avoid it in the future
+
+And instead of talking about this process theoretically, I suggest we take a look at a real example of something that happened in my team half a year ago and how we used this approach to reflect on our mistakes.
+
+This is the user interface of Manychat and its Live Chat section. And in the orange selection, you see the new feature we wanted to introduce called “Customizable workspace”. This would have allowed the Live Chat agent to set up folders with conversations that satisfy some set requirements and quickly navigate between them. So, let’s see what happened. Please note that this is going to be a shortened version just for us to explore the overall idea.
+
+- What happened. The infrastructure team blocked this feature right before it was released, and the sprint goal wasn’t achieved.
+- Why it happened. The proposed implementation had several flaws in its design that would have worsened the performance issues we had.
+- How we could have avoided it. We could spend more time researching the subject to find a better technical solution that, in fact, was there, and we just couldn’t see it.
+- How we can avoid it in the future. Sync with the infra team for features that can sufficiently affect the overall performance of our backend and databases. Spend more time on research and get their approval before implementing such features.
+
+So, this was a very brief overview of how we address problems that were caused by our technical decisions. To wrap it up Architectural retro allows us to reflect on our failures and ensure that we don’t make the same mistakes twice.
+
+### Component ownership initiative
+
+Our product is a very complex system.   It is hard to manage that gigantic system as a whole. We need to have a clear vision of the future and how our system needs to change. Instead of trying to manage it as a whole we decided to manage every part of the system on its own. Product engineers in our company are assigned to different parts of the system, and they are responsible for several aspects of the component, including its stability, code quality, and more.
+I also want to mention that for us, it is important that one single person is fully accountable for the state of the component. Other developers can help and contribute to the component, but the final responsibility is on the owner. This approach is not really unique. Many companies use the same ideas with a little bit different implementations.
+
+This is just a small part of our Component Map with owners assigned to components.  On top, you see six key components for us - integrations with different channels that businesses use to communicate with their customers. And in the center, you see the structure of our various other subsystems like Billing, Automation, Integrations, and others. With that picture in mind, let’s see what a component owner's responsibilities are.
+
+**The owner is responsible for the component’s stability:**
+
+- They make sure that the component is covered with required metrics and that monitoring is working.
+- They also react to any problems with the component, such as critical bugs, performance issues alerts, etc.
+
+**The owner is responsible for the component’s code quality:**
+
+- They control tech debt by creating backlog items for issues that need to be resolved as well as for possible improvements.
+- If necessary, they create a refactoring plan and justify why it is worth the resources it requires.
+- They perform in-depth code reviews for new contributions to the component. This includes optional blocking of contributions that can substantially affect the component’s code quality and stability in a bad way.
+
+**And finally, the owner is responsible for the component’s knowledge base:**
+
+- They create the necessary amount of documentation and keep it up to date.
+- And the very important point is that the owner acts as an entry point for everyone who wants to gain some knowledge about the component.
+
+To wrap it up, сomponent ownership process allows us to ensure that every important part of the product has a clear vision of the future, where it helps us achieve bigger results.
+
+### Principles we follow in the development
+
+#### If we lack resources, cut the scope
+
+This triangle is the representation of three key aspects of new contributions we make to introduce features or enhance our product in other ways. They are scope, quality, and stability. Imagine that inside this triangle appears another triangle that represents our available resources. And we can stretch it in different ways to achieve the desired level of each of the three key aspects, but at the same time, not increase the amount of resources.
+
+With that idea in mind, we can say for sure that in the ideal world, we would like to have enough resources to satisfy our expectations for all three key aspects: scope, quality, and stability. But in reality, resources are not endless, so we make sacrifices case by case. And if you don’t control these decisions well enough, you might end up with the scope that was fully implemented, but the quality of the implementation is so low that you just can’t let your users see it.
+
+To avoid that, at Manychat we are committed to keep the quality and stability of our product at the same high level no matter what. We are only ready to adjust the scope of the things we do, but the high level of quality and stability must remain. And while doing that, we are also looking for situations where the amount of available resources is so low that the scope we can afford ourselves to implement is not providing any real value to our users. That situation is a red flag that something went wrong, and we need to reconsider what can be done with that feature.
+
+#### Keep technical decisions as simple as possible
+
+To explore this principle, let’s first look at the simplified feature lifecycle. There is the “create” stage where we decide what to do, how to do it, and actually implement it.   Then we move to the “maintain” stage, which is pretty self-explanatory. And, after that, to the “extend” stage, where we want to introduce new functionality or change the feature in some way.
+
+In the ideal world, developers would want to do everything this way. Just plan it all beforehand, create architecture and extensibility mechanisms, then just enjoy development! Basically, this is a waterfall approach. But in reality, this approach is almost never a good idea in modern product development since there is no chance that we could foresee everything and predict how the product will need to change with this exact feature. So as a result, we spend a lot more time in the “extend” stage since we’re trying to fit new required changes to the feature with the architecture and mechanisms that we created earlier and for which we spent a lot of time.
+
+What we’re trying to do is to keep it all simple yet extensible and maintainable. We’re not trying to predict how features will change over time. We solve our problems here and now and yet not harming long-term product stability. And we keep an eye that our decisions are not too straightforward and naive to the point where the development becomes unsustainable, which can be resulted in the picture on the right. We didn’t come up with this principle out of nowhere, but we learned that by our own mistakes, and the next slide is going to be about that.
+
+To wrap it up, our engineering practices help us build a product with the right quality and keep up with competitors in the challenging market, bringing value to our users fast.
+
+## Conclusion
+
+### What your company actually wants from your code ...
+
+The first part of my talk was dedicated to finding an answer to the question, “What your company actually wants from your code”. I interviewed Product Owners at Manychat and presented you their responses that fell into three categories you see on the screen: Adding more features, Complexity and maintenance, and Impact on the future.
+
+### ... and how to keep up with their expectations
+
+Then I explored how we keep up with their expectations in our company by talking to Engineering Managers and highlighting four practices that help our engineering community achieve bigger results. That included Architectural retro, Product area lead role, Component ownership process, and The principles we follow in development.

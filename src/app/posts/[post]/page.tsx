@@ -3,7 +3,12 @@ import '@/styles/prism-plus.css'
 
 import { CustomImage } from '@/components/Mdx/CustomImage'
 import { CustomLink } from '@/components/Mdx/CustomLink'
-// import { CustomPre } from '@/components/Mdx/CustomPre'
+import { CustomParagraph } from '@/components/Mdx/CustomParaghraph'
+import {
+  CustomListItem,
+  CustomOrderedList,
+  CustomUnorderedList,
+} from '@/components/Mdx/CustomList'
 import {
   CustomH1,
   CustomH2,
@@ -13,9 +18,10 @@ import {
   CustomH6,
 } from '@/components/Mdx/CustomHeading'
 
-import { format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import { PostSidebar } from '@/components/PostSidebar'
+import { PostHeading } from '@/components/PostHeading'
 
 export const generateStaticParams = () =>
   allPosts.map((post) => ({ post: post._raw.flattenedPath }))
@@ -28,7 +34,6 @@ export const generateMetadata = ({ params }: { params: { post: string } }) => {
   return { title: post.title }
 }
 
-// Custom components/renderers to pass to MDX.
 const mdxComponents = {
   h1: CustomH1,
   h2: CustomH2,
@@ -38,7 +43,11 @@ const mdxComponents = {
   h6: CustomH6,
   // pre: CustomPre,
   a: CustomLink,
+  p: CustomParagraph,
   img: CustomImage,
+  ul: CustomUnorderedList,
+  ol: CustomOrderedList,
+  li: CustomListItem,
 }
 
 const PostLayout = ({ params }: { params: { post: string } }) => {
@@ -50,19 +59,17 @@ const PostLayout = ({ params }: { params: { post: string } }) => {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <article className=''>
+    <div className=''>
       <div className='mb-12'>
-        <h1 className='text-4xl font-bold'>{post.title}</h1>
-        <time dateTime={post.date} className='mb-1 text-xs text-secondary'>
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
-        </time>
+        <PostHeading post={post} />
       </div>
-      <MDXContent components={mdxComponents} />
-      {/* <div */}
-      {/*   className='[&>*]:mb-3 [&>*:last-child]:mb-0' */}
-      {/*   dangerouslySetInnerHTML={{ __html: post.body.html }} */}
-      {/* /> */}
-    </article>
+      <div className='flex items-start gap-12 relative'>
+        <PostSidebar post={post} />
+        <article className='flex-grow'>
+          <MDXContent components={mdxComponents} />
+        </article>
+      </div>
+    </div>
   )
 }
 

@@ -51,6 +51,10 @@
     @apply bg-m-accent2 dark:bg-m-dark-accent2;
   }
 
+  .border-main {
+    @apply border-m-main dark:border-m-dark-main;
+  }
+
   /* --- effects ---  */
   .glow-normal {
     filter: drop-shadow(4px 6px 20px theme(colors.m-accent/60%));
@@ -61,4 +65,15 @@
   .glow {
     @apply glow-normal dark:glow-dark;
   }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
+
+

@@ -16,7 +16,7 @@ function CustomHeading({
       id={id}
       className={cn(
         className,
-        'group scroll-mt-24 whitespace-pre-wrap font-bold',
+        'group scroll-mt-20 whitespace-pre-wrap font-bold dark:text-m-dark-accent',
       )}
       {...otherProps}
     >
@@ -33,16 +33,32 @@ function CustomHeading({
 }
 
 export const CustomH1 = (props: React.ComponentPropsWithRef<'h1'>) => (
-  <CustomHeading Component='h1' className='text-3xl mb-6' {...props} />
+  <CustomHeading
+    Component='h1'
+    className='text-3xl mb-6 text-accent'
+    {...props}
+  />
 )
 export const CustomH2 = (props: React.ComponentPropsWithRef<'h2'>) => (
-  <CustomHeading Component='h2' className='text-2xl mb-6 mt-8' {...props} />
+  <CustomHeading
+    Component='h2'
+    className='text-2xl mb-3 mt-9 first:mt-0'
+    {...props}
+  />
 )
 export const CustomH3 = (props: React.ComponentPropsWithRef<'h3'>) => (
-  <CustomHeading Component='h3' {...props} />
+  <CustomHeading
+    Component='h3'
+    className='text-xl mb-2 mt-4 font-bold'
+    {...props}
+  />
 )
 export const CustomH4 = (props: React.ComponentPropsWithRef<'h4'>) => (
-  <CustomHeading Component='h4' {...props} />
+  <CustomHeading
+    Component='h4'
+    className='text-lg mb-2 mt-2 font-bold'
+    {...props}
+  />
 )
 export const CustomH5 = (props: React.ComponentPropsWithRef<'h5'>) => (
   <CustomHeading Component='h5' {...props} />

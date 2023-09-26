@@ -4,7 +4,7 @@ import { PostsList } from '@/components/PostsList'
 
 export default function AboutPage() {
   return (
-    <div className=''>
+    <div className='max-w-screen-md mx-auto'>
       <div className='col-span-full mb-6'></div>
       <PersonalIntroduction className='mb-20' />
       <div className=''>

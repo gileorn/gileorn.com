@@ -1,3 +1,4 @@
+import React from 'react'
 import { FileText } from 'lucide-react'
 import { PersonalIntroduction } from '@/components/PersonalIntroduction'
 import { PostsList } from '@/components/PostsList'
@@ -13,11 +14,6 @@ export default function AboutPage() {
           <h2 className='text-xl font-medium'>Blog Posts</h2>
         </div>
         <PostsList />
-        {/* <div className='flex items-center gap-2 mb-6'> */}
-        {/*   <MapPin size={32} /> */}
-        {/*   <h2 className='text-xl font-medium'>Appearences</h2> */}
-        {/* </div> */}
-        {/* <PostsList /> */}
       </div>
     </div>
   )

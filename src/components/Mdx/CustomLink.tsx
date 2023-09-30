@@ -1,4 +1,4 @@
-import { Link2 } from 'lucide-react'
+import { ExternalLink as LinkIcon } from 'lucide-react'
 import Link from 'next/link'
 
 type Props = React.ComponentPropsWithoutRef<'a'>
@@ -22,10 +22,16 @@ export const CustomLink = ({ href, children, ...rest }: Props) => {
     )
 
   return (
-    <a target='_blank' rel='noopener noreferrer' href={href} {...rest}>
-      {children}
+    <a
+      target='_blank'
+      rel='noopener noreferrer'
+      className='underline decoration-main underline-offset-2 hover:decoration-accent hover:text-accent'
+      href={href}
+      {...rest}
+    >
+      <span className='text-main'>{children}</span>
       {typeof children === 'string' && (
-        <Link2 className='ml-1 inline-block h-4 w-4' />
+        <LinkIcon className='ml-1 inline-block h-4 w-4 ' />
       )}
     </a>
   )

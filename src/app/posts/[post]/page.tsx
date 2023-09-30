@@ -1,6 +1,8 @@
 import '@/styles/prism-darcula.css'
 import '@/styles/prism-plus.css'
+import './post.css'
 
+import React from 'react'
 import { CustomImage } from '@/components/Mdx/CustomImage'
 import { CustomLink } from '@/components/Mdx/CustomLink'
 import { CustomParagraph } from '@/components/Mdx/CustomParaghraph'
@@ -55,6 +57,7 @@ const PostLayout = ({ params }: { params: { post: string } }) => {
   const post = allPosts.find(
     (currentPost) => currentPost._raw.flattenedPath === params.post,
   )
+
   if (!post) throw new Error(`Post not found for post: ${params.post}`)
 
   const MDXContent = useMDXComponent(post.body.code)

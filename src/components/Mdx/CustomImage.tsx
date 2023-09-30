@@ -14,7 +14,14 @@ export function CustomImage({
   if (typeof src === 'string' && (!height || !width))
     return (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src={src} height={height} width={width} alt={alt} {...otherProps} />
+      <img
+        src={src}
+        height={height}
+        width={width}
+        alt={alt}
+        className='rounded-sm mb-2'
+        {...otherProps}
+      />
     )
 
   return (
@@ -27,6 +34,7 @@ export function CustomImage({
       sizes='(min-width: 40em) 40em, 100vw'
       placeholder={base64 ? 'blur' : 'empty'}
       blurDataURL={base64}
+      className='mb-2 rounded-sm'
       {...otherProps}
     />
   )

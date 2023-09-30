@@ -23,7 +23,7 @@ function CustomHeading({
       <span className='mr-3'>{children}</span>
       <a
         href={id && `#${id}`}
-        className='cursor-pointer inline-flex h-6 w-6 items-center justify-center rounded-md text-lg text-slate-400 no-underline opacity-0 shadow-sm ring-1 ring-slate-900/5 transition-all hover:bg-slate-100 hover:text-slate-700 hover:shadow hover:ring-slate-900/10 group-hover:opacity-100 dark:text-slate-400 dark:ring-slate-400/20 dark:hover:text-slate-700'
+        className='cursor-pointer inline-flex h-6 w-6 items-center justify-center rounded-md text-lg text-slate-400 no-underline shadow-sm ring-1 ring-slate-900/5 transition-all hover:bg-slate-100 hover:text-slate-700 hover:shadow hover:ring-slate-900/10 opacity-100 dark:text-slate-400 dark:ring-slate-400/20 dark:hover:text-slate-700'
         aria-label='Anchor'
       >
         #

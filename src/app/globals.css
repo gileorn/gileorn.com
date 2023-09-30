@@ -65,6 +65,13 @@
   .glow {
     @apply glow-normal dark:glow-dark;
   }
+  .decoration-main {
+    @apply decoration-m-main dark:decoration-m-dark-main;
+  }
+  .decoration-accent {
+    @apply decoration-m-accent dark:decoration-m-dark-accent;
+  }
+
 
   .hide-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */

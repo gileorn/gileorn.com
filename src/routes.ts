@@ -13,9 +13,9 @@ export const Routes = [
     name: 'Appearances',
     disabled: true,
   },
-  // {
-  //   path: '/bookmarks',
-  //   name: 'Bookmarks',
-  //   disabled: true,
-  // },
+  {
+    path: '/bookmarks',
+    name: 'Bookmarks',
+    disabled: true,
+  },
 ]

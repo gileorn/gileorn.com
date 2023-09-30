@@ -3,7 +3,7 @@ import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
-const WPM = 150
+const WPM = 230
 
 export const calculateReadTime = (text) => {
   const noOfWords = text.split(/\s/g).length

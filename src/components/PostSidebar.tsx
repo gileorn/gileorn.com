@@ -16,6 +16,8 @@ import { useDidMountEffect } from '@/hooks/useDidMountEffect'
 const LIKES_LS_FIELD = 'gileorn_likes'
 
 function safeGetLikesMap() {
+  if (typeof window === 'undefined') return {}
+
   const lsField = localStorage.getItem(LIKES_LS_FIELD)
   let parsedField: Record<string, boolean> | null = null
 
@@ -31,6 +33,8 @@ function safeGetLikesMap() {
 }
 
 function setPostLikesMap(postID: string) {
+  if (typeof window === 'undefined') return
+
   const localLikesMap = safeGetLikesMap()
   const newLocalLikesMap = {
     ...localLikesMap,

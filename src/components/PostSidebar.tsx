@@ -47,12 +47,13 @@ function setPostLikesMap(postID: string) {
 export const PostSidebar = ({ post }: { post: Post }) => {
   const [views, setViews] = useState<number>()
   const [likes, setLikes] = useState<number>()
+  const [wasPostLiked, setWasPostLiked] = useState(false)
   const postID = post._raw.flattenedPath
-  const localLikesMap = safeGetLikesMap()
-  const wasPostLiked = localLikesMap?.[postID]
 
   const likePost = React.useCallback(async () => {
     if (wasPostLiked) return
+
+    setWasPostLiked(true)
 
     const { data } = await supabase.rpc('increment_likes', {
       postid: post?._raw.flattenedPath,
@@ -88,7 +89,10 @@ export const PostSidebar = ({ post }: { post: Post }) => {
   }, [post])
 
   useDidMountEffect(() => {
+    const localLikesMap = safeGetLikesMap()
+
     fetchDbPost()
+    setWasPostLiked(Boolean(localLikesMap?.[postID]))
 
     const timeout = setTimeout(() => {
       if (post) incrementViewsCounter()

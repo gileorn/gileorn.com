@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import { Providers } from '@/components/Providers'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import PlausibleProvider from 'next-plausible'
 import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' suppressHydrationWarning>
+      <head>
+        <PlausibleProvider domain='gileorn.com' />
+      </head>
       <body
         className={cn(
           inter.className,

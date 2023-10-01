@@ -5,3 +5,7 @@ blockquote {
 p:has(img) {
   font-style: italic;
 }
+
+article {
+  @apply w-full relative;
+}

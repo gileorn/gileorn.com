@@ -17,6 +17,7 @@ export const PersonalIntroduction = ({ className }: { className?: string }) => (
     )}
   >
     <Image
+      priority
       src='/img/avatars/1.jpg'
       width={200}
       height={200}
@@ -70,5 +71,12 @@ export const PersonalIntroduction = ({ className }: { className?: string }) => (
         </Link>
       </div>
     </div>
+    <button
+      onClick={() => {
+        console.log(thisiserror)
+      }}
+    >
+      hello
+    </button>
   </div>
 )

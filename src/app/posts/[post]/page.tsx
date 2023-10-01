@@ -25,6 +25,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import { PostSidebar } from '@/components/PostSidebar'
 import { PostHeading } from '@/components/PostHeading'
 import { CommentSection } from '@/components/CommentSection'
+import { CustomPre } from '@/components/Mdx/CustomPre'
 
 export const generateStaticParams = () =>
   allPosts.map((post) => ({ post: post._raw.flattenedPath }))
@@ -44,7 +45,7 @@ const mdxComponents = {
   h4: CustomH4,
   h5: CustomH5,
   h6: CustomH6,
-  // pre: CustomPre,
+  pre: CustomPre,
   a: CustomLink,
   p: CustomParagraph,
   img: CustomImage,

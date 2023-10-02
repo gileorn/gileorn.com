@@ -23,6 +23,10 @@ export const Post = defineDocumentType(() => ({
     description: { type: 'string', required: false },
     tags: { type: 'list', of: { type: 'string' }, required: false },
     teaser: { type: 'boolean', required: false },
+    transcript_of_talk: { type: 'string', required: false },
+    live_talk_date: { type: 'date', required: false },
+    event_name: { type: 'string', required: false },
+    event_location: { type: 'string', required: false },
   },
   computedFields: {
     url: {

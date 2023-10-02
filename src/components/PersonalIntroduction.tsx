@@ -71,12 +71,5 @@ export const PersonalIntroduction = ({ className }: { className?: string }) => (
         </Link>
       </div>
     </div>
-    <button
-      onClick={() => {
-        console.log(thisiserror)
-      }}
-    >
-      hello
-    </button>
   </div>
 )

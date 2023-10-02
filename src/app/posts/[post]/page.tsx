@@ -1,4 +1,5 @@
 import '@/styles/prism-darcula.css'
+import '@/styles/prism-material-light.css'
 import '@/styles/prism-plus.css'
 import './post.css'
 

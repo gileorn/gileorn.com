@@ -2,6 +2,11 @@ pre {
   overflow-x: auto;
 }
 
+/* customized for light theme */
+html.light .highlight-line {
+  background-color: rgba(55, 65, 81, 0.2);
+}
+
 /**
  * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
  * 1. Make the element just wide enough to fit its content.
@@ -35,6 +40,8 @@ pre {
   background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
   border-left: 4px solid rgb(59, 130, 246); /* Set highlight accent border color */
 }
+
+
 
 .line-number::before {
   display: inline-block;

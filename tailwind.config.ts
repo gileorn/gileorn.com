@@ -11,9 +11,6 @@ const config: Config = {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    container: {
-      padding: '1rem',
-    },
     extend: {
       colors: {
         // text and base colors

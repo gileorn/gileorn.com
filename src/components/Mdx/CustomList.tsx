@@ -11,7 +11,7 @@ export const CustomOrderedList = (props: { children: React.ReactNode }) => (
 )
 
 export const CustomListItem = (props: { children: React.ReactNode }) => (
-  <li className='mb-2 ml-2 pl-1'>
+  <li className='mb-1 ml-2 pl-1'>
     <span className='text-base'>{props.children}</span>
   </li>
 )

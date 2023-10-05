@@ -71,7 +71,7 @@ const PostLayout = ({ params }: { params: { post: string } }) => {
       </div>
       <div className='flex items-start gap-12 relative'>
         <PostSidebar post={post} />
-        <article className='flex-grow'>
+        <article className='flex-grow overflow-x-hidden'>
           <MDXContent components={mdxComponents} />
         </article>
       </div>

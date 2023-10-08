@@ -46,7 +46,7 @@ export default function RootLayout({
           <ErrorBoundary>
             <Providers>
               <Header />
-              <main className='flex-grow h-full relative py-6 md:py-12 w-full mx-auto max-w-screen-lg px-6'>
+              <main className='flex-grow h-full relative py-6 md:py-12 w-full mx-auto max-w-screen-lg px-8 md:px-6'>
                 {children}
               </main>
               <Footer />

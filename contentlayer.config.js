@@ -1,6 +1,7 @@
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
+import remarkUnwrapImages from 'remark-unwrap-images'
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 const WPM = 230
@@ -44,6 +45,7 @@ export default makeSource({
   contentDirPath: 'data/posts',
   documentTypes: [Post],
   mdx: {
+    remarkPlugins: [remarkUnwrapImages],
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,

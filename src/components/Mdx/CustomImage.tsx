@@ -8,20 +8,26 @@ export function CustomImage({
   width,
   base64,
   alt,
+  title,
   ...otherProps
 }: Props) {
   if (!src) return null
   if (typeof src === 'string' && (!height || !width))
     return (
       // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={src}
-        height={height}
-        width={width}
-        alt={alt}
-        className='rounded-sm mb-2'
-        {...otherProps}
-      />
+      <figure>
+        <img
+          src={src}
+          height={height}
+          width={width}
+          alt={alt}
+          className='rounded-sm mb-2'
+          {...otherProps}
+        />
+        {title && (
+          <figcaption className='text-sm text-secondary'>{title}</figcaption>
+        )}
+      </figure>
     )
 
   return (

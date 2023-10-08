@@ -4,10 +4,10 @@ import { format, parseISO } from 'date-fns'
 
 export const PostHeading = ({ post }: { post: Post }) => (
   <div className='text-center'>
-    <h1 className='md:text-5xl text-4xl md:px-20 font-bold text-accent mb-4'>
+    <h1 className='md:text-5xl text-4xl md:px-14 font-bold mb-4'>
       {post.title}
     </h1>
-    <div className='mb-1 text-base text-secondary'>
+    <div className='text-secondary mb-1'>
       Posted on {format(parseISO(post.date), 'LLLL d, yyyy')} • {post.readTime}{' '}
       min read
     </div>

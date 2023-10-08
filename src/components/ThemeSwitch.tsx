@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Switch } from '@nextui-org/react'
+import { Skeleton, Switch } from '@nextui-org/react'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
@@ -11,6 +11,8 @@ export const ThemeSwitch = () => {
     setMounted(true)
   }, [])
 
+  if (!mounted) return <Skeleton className='w-14 h-8 rounded-full mr-2' />
+
   return (
     <Switch
       size='lg'
@@ -18,7 +20,7 @@ export const ThemeSwitch = () => {
         wrapper: 'group-data-[selected=true]:bg-accent bg-accent',
         thumb: 'bg-zinc-50',
       }}
-      isSelected={mounted && theme === 'light'}
+      isSelected={theme === 'light'}
       onValueChange={(value) => setTheme(value ? 'light' : 'dark')}
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (

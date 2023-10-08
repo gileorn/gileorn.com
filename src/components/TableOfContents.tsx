@@ -94,7 +94,7 @@ const TableOfContents = ({ source }: Props) => {
             className={clsx(
               heading.id === activeId ? 'text-accent' : '',
               heading.level === 3 && 'pl-4',
-              'text-left mb-2 last:mb-0 text-sm',
+              'text-left mb-2 last:mb-0 text-sm text-hover',
             )}
             onClick={(e) => {
               e.preventDefault()

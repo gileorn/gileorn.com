@@ -104,8 +104,8 @@ export const PostSidebar = ({ post }: { post: Post }) => {
   })
 
   return (
-    <div className=' hidden hide-scrollbar bottom-6 lg:block pb-14 sticky top-20 right-0 w-64 flex-shrink-0 max-h-[calc(100vh-64px)] overflow-y-scroll'>
-      <div className='pr-8 flex flex-col gap-8 border-r border-m-main/10 dark:border-m-dark-main/20'>
+    <div className=' hidden hide-scrollbar bottom-6 lg:block pb-14 sticky top-24 right-0 w-64 flex-shrink-0 max-h-[calc(100vh-64px)] overflow-y-scroll'>
+      <div className='pr-8 flex flex-col gap-6 border-r border-m-main/10 dark:border-m-dark-main/20'>
         <Skeleton
           className='flex-shrink-0 rounded-md dark:bg-transparent'
           isLoaded={likes !== undefined}

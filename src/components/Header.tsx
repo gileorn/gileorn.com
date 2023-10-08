@@ -24,17 +24,17 @@ export const Header = () => {
 
   return (
     <Navbar
-      shouldHideOnScroll
       isBlurred={false}
       isBordered={!isScrolledToTop}
       onMenuOpenChange={setIsMenuOpen}
+      shouldHideOnScroll
       classNames={{
         base: 'mx-auto transition-colors duration-500',
         toggle: 'order-last',
         menu: 'text-main bg-inherit',
         item: [
           'dark:data-[active=true]:text-dark-accent data-[active=true]:text-accent',
-          'text-main dark:text-dark-main',
+          'text-main dark:text-dark-main font-semibold',
         ],
         content: 'max-w-screen-lg mx-auto justify-between',
       }}

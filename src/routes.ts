@@ -6,7 +6,6 @@ export const Routes = [
   {
     path: '/posts',
     name: 'Posts',
-    disabled: true,
   },
   {
     path: '/appearances',

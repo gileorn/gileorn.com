@@ -2,10 +2,34 @@ blockquote {
   @apply border-l-m-main/50 dark:border-l-m-dark-main/50 border-l pl-3 border-l-4;
 }
 
-p:has(img) {
-  font-style: italic;
-}
-
 article {
   @apply w-full relative;
+}
+
+p {
+  @apply mb-2;
+}
+
+p + p, p + figure, figure + p {
+  @apply mt-5;
+}
+
+p + pre {
+  @apply mt-4 !important;
+}
+
+p + ul, p + ol {
+  @apply mt-2;
+}
+
+pre {
+  @apply mb-5 !important;
+}
+
+blockquote {
+  @apply my-3;
+}
+
+figure + ol, figure + ul {
+  @apply mt-4;
 }

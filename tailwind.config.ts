@@ -32,7 +32,7 @@ const config: Config = {
         // hover states
         'm-hover': colors.indigo[500],
         'm-dark-hover': colors.indigo[300],
-        'm-accent-hover': colors.indigo[600],
+        'm-accent-hover': colors.indigo[500],
         'm-dark-accent-hover': colors.indigo[200],
       },
     },

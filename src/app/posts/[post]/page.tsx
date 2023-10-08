@@ -65,7 +65,7 @@ const PostLayout = ({ params }: { params: { post: string } }) => {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className=''>
+    <div>
       <div className='mb-12'>
         <PostHeading post={post} />
       </div>

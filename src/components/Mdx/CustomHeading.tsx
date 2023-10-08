@@ -49,14 +49,14 @@ export const CustomH2 = (props: React.ComponentPropsWithRef<'h2'>) => (
 export const CustomH3 = (props: React.ComponentPropsWithRef<'h3'>) => (
   <CustomHeading
     Component='h3'
-    className='text-xl mb-2 mt-4 font-bold'
+    className='text-xl mb-3 mt-5 font-bold'
     {...props}
   />
 )
 export const CustomH4 = (props: React.ComponentPropsWithRef<'h4'>) => (
   <CustomHeading
     Component='h4'
-    className='text-lg mb-2 mt-2 font-bold'
+    className='text-lg mb-3 mt-5 font-bold'
     {...props}
   />
 )

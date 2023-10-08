@@ -2,7 +2,7 @@ import React from 'react'
 import { Badge, BadgeProps } from '@nextui-org/react'
 
 export const ConditionalBadge = ({
-  size = 'sm',
+  size = 'lg',
   ...props
 }: {
   children: React.ReactNode
@@ -16,13 +16,13 @@ export const ConditionalBadge = ({
     <Badge
       classNames={{
         base: 'w-full',
-        badge:
-          'bg-accent text-white border border-zinc-300 dark:border-zinc-100 shadow-md',
+        badge: 'font-normal bg-zinc-400 text-white shadow-md  px-2 py-[2px]',
       }}
       content={props.content}
       variant='faded'
       placement='top-right'
       size={size}
+      disableOutline
     >
       {props.children}
     </Badge>

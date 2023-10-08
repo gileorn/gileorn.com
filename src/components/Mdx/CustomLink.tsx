@@ -25,11 +25,11 @@ export const CustomLink = ({ href, children, ...rest }: Props) => {
     <a
       target='_blank'
       rel='noopener noreferrer'
-      className='underline decoration-main underline-offset-2 hover:decoration-accent hover:text-accent'
+      className='underline decoration-main underline-offset-2 decoration-accent hover:text-accent'
       href={href}
       {...rest}
     >
-      <span className='text-main'>{children}</span>
+      <span className=''>{children}</span>
       {typeof children === 'string' && (
         <LinkIcon className='ml-1 inline-block h-4 w-4 ' />
       )}

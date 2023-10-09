@@ -1,6 +1,6 @@
 ---
 title: Create your own developer blog from scratch with React and Next.js
-description: Step-by-step walkthrough of how I created a smiple static blog with React, Next.js, Tailwind.css and Contentlayer
+description: Step-by-step walkthrough of how I created my personal dev blog with React, Next.js, Tailwind.css, Contentlayer and Supabase
 date: 2023-10-09
 tags: ['React', 'Next.js', 'Tailwind', 'AWS', 'Vercel']
 ---
@@ -9,9 +9,9 @@ tags: ['React', 'Next.js', 'Tailwind', 'AWS', 'Vercel']
 
 After five years of working as a frontend developer, I finally felt confident and motivated to share my knowledge and opinions with the world. Over the last two years, I've accumulated numerous ideas and drafts for talks, presentations, and articles. I've honed my English skills and realized that writing technical content comes naturally to me. The next step was deciding how and where to publish my content.
 
-With Twitter becoming an impression-farming click-baiting shitshow and Medium filling half of my screen with paid subscription promotion, there wasn't any other option for me but to build my own blog the way I want it to be. I want to own my content, distribute it for free and not be too dependant on any platform or tool.
+With Twitter becoming an impression-farming click-baiting shitshow and Medium filling half of my screen with paid subscription promotion, there wasn't any other option for me but to build my own blog the way I want it to be. I want to own my content, distribute it for free, and not be too dependent on any platform or tool.
 
-![Medium subscription promotion](/img/posts/hello-world-devblog/medium.png 'Not going to invest my time for content that will end up looking like this.')
+![Medium subscription promotion](/img/posts/hello-world-devblog/medium.png "I'm not going to invest my time for content that will end up looking like this.")
 
 ## MVP functionality
 
@@ -19,15 +19,15 @@ I started writing the code and exploring available tools for my goal right away.
 
 Here is the final set of things that I considered as required to be done before I announce and get my blog out to the world:
 
-- Visually attractive, minimalistic UI with responsiveness, adapted for mobile phones
+- Visually attractive, minimalistic UI, adapted for mobile phones
 - Small about section with social links
-- Posts that are statically generated from MDX files with a result of Notion-like layout
+- Posts that are statically generated from MDX files with a result of a Notion-like layout
 - Dynamic table of contents for each post with an active section highlighting
 - Fully functional comment section with social login through 3rd party provider
 - Code snippets with syntax highlighting
 - Dark mode
 - Likes and views counters
-- Easy deploy, minimal maintenance
+- Easy deployment, minimal maintenance
 - Analytics with SaaS integration
 - Error tracking with SaaS integration
 - Basic monitoring of the instance running in the cloud
@@ -38,7 +38,7 @@ Here is the final set of things that I considered as required to be done before 
 
 Before all the technical stuff, I want to highlight how unexpectedly difficult it was to create the visual side of this blog. I've always known that UI designers' work is pretty hard and challenging, but the situation when you have a blank sheet and you need to start building something that looks attractive was something special to me.
 
-I had no idea how I wanted my blog to look, so I looked for some references. [Glenn Reyes's blog](https://glennreyes.com/) inspired by [Tailwind's Spotlight template](https://tailwindui.com/templates/spotlight) was one of the first ones I found. [Ekom Enyong's blog](https://ekomenyongcom-8288jhp5g-ekomenyong.vercel.app/) helped me finalize some details of the post page, including table of contents and post header.
+I had no idea how I wanted my blog to look, so I looked for some references. [Glenn Reyes's blog](https://glennreyes.com/), inspired by [Tailwind's Spotlight template](https://tailwindui.com/templates/spotlight), was one of the first ones I found. [Ekom Enyong's blog](https://ekomenyongcom-8288jhp5g-ekomenyong.vercel.app/) helped me finalize some details of the post page, including the table of contents and post header.
 
 I gravitated towards a simple yet pleasant and contrast look. After experimenting with some color schemes and even trying to fit my favorite [Catpuccin theme](https://github.com/catppuccin/catppuccin), I ended up defining a custom color scheme with one contrast color similar to [Dan Abramov's personal blog](https://overreacted.io/).
 
@@ -50,7 +50,7 @@ However, my experience with Next.js had its ups and downs. While I appreciated i
 
 ### AWS Amplify for deployment and monitoring
 
-Vercel seemed to me like an important piece of the frontend industry puzzle that I had been missing, similar to Next.js. The first versions of my blog were deployed with ease with Vercel, but later, I decided to move to AWS. I had two reasons for that. The first one is that I already had the base level certification for AWS ([Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/)) and I wanted to continue my path towards more complex certifications. I didn't have any chance to do that aside from the regular work, and the blog seemed like a great fit. Up until the end of the development process, I had set up both AWS and Vercel deployment, and that allowed me to explore their differences. The second reason why I chose AWS over Vercel was that I imagined this blog serving as a playground for me to explore different subjects of software engineering, leaning towards full-stack development. All these ideas require fully capable cloud infrastructure, so I decided not to waste my time on half-measures or to have trouble integrating my frontend app hosted on Vercel with other parts of the system hosted on AWS.
+Vercel seemed to me like an important piece of the frontend industry puzzle that I had been missing, similar to Next.js. The first versions of my blog were deployed with ease with Vercel, but later, I decided to move to AWS. I had two reasons for that. The first one is that I already had the base-level certification for AWS ([Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/)) and I wanted to continue my path towards more complex certifications. I didn't have any chance to do that aside from the regular work, and the blog seemed like a great fit. Up until the end of the development process, I had set up both AWS and Vercel deployment, and that allowed me to explore their differences. The second reason why I chose AWS over Vercel was that I imagined this blog serving as a playground for me to explore different subjects of software engineering, leaning towards full-stack development. All these ideas require fully capable cloud infrastructure, so I decided not to waste my time on half-measures or to have trouble integrating my frontend app hosted on Vercel with other parts of the system hosted on AWS.
 
 Being familiar with AWS platform, I was pleasantly surprised with their answer to Vercel - [AWS Amplify](https://aws.amazon.com/amplify/). It was very easy to set up deployment, just like with Vercel. All the details related to Next.js were automatically detected, and the deployment simply worked. I bought the domain gileorn.com with AWS Route 53, and the integration with Amplify was as easy as you might expect.
 
@@ -63,7 +63,7 @@ The next discovery happened when I wanted to set up basic monitoring of the runn
 
 ### Tailwind for styling
 
-Tailwind was another thing I have yet to try. The utility classes concept was familiar to me, but I've only encountered some custom implementations of it and haven't seen any project taking full advantage of Tailwind.
+Tailwind was another thing I had yet to try. The utility classes concept was familiar to me, but I've only encountered some custom implementations of it and haven't seen any project taking full advantage of Tailwind.
 
 As a new Tailwind user, I spent a lot of time consulting the docs to understand what class I was searching for, its fundamental principles, and the different ways I could customize my setup. One of the first things I tried to solve was the following use case:
 
@@ -79,7 +79,7 @@ I wanted my color scheme to be in one place and easily customizable without doin
 <div class="text-main"></div>
 ```
 
-To achieve that I declared a set of custom colors with a prefix 'm-' to avoid any naming conflicts.
+To achieve that, I declared a set of custom colors with a prefix 'm-' to avoid any naming conflicts.
 
 ```ts showLineNumbers
 // tailwind.config.ts
@@ -138,7 +138,7 @@ These custom colors were used to create new tailwind primitives that are easy to
 }
 ```
 
-So in terms of the code, this is what I ended up with. Below is the PostHeading component you see on the top of this page.
+So, in terms of the code, this is what I ended up with. Below is the PostHeading component you see at the top of this page.
 
 ```tsx showLineNumbers
 export const PostHeading = ({ post }: { post: Post }) => (
@@ -158,9 +158,9 @@ I don't believe that any of the things I mentioned above require Tailwind. I cou
 
 ### Contentlayer for posts management
 
-I wanted to use something other than CMS for data storage and WYSIWYG editor for creating and editing posts. The new MDX file format is a great way to have posts near the code, keep them under the version control system, and use markdown syntax. Moreover, MDX allows the usage of JSX and custom React components right there, next to the regular markdown content.
+I wanted to use something other than CMS for data storage and WYSIWYG editor for creating and editing posts. The new MDX file format is a great way to have posts near the code, keep them under the version control system, and use markdown syntax. Moreover, MDX allows the usage of JSX and custom React components right next to the regular markdown content.
 
-Out of all available options of MDX support for Next.js (including [built-in support](https://nextjs.org/docs/pages/building-your-application/configuring/mdx)), I chose [Contentlayer](https://contentlayer.dev/) library because of concise API, good support and ease of use. Below is an example of defining a Post content source coming from a specified location with a set of fields, optional and required.
+Out of all available options of MDX support for Next.js (including [built-in support](https://nextjs.org/docs/pages/building-your-application/configuring/mdx)), I chose [Contentlayer](https://contentlayer.dev/) library because of its concise API, good support and ease of use. Below is an example of defining a Post content source coming from a specified location with a set of fields, optional and required.
 
 ```tsx showLineNumbers
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
@@ -190,7 +190,7 @@ export default makeSource({
 })
 ```
 
-The above defined fields then can be initialized in the heading section of any mdx file as shown below.
+The above-defined fields can then be initialized in the heading section of any MDX file, as shown below.
 
 ```md showLineNumbers
 ---
@@ -226,13 +226,13 @@ export default makeSource({
 
 ### Supabase and PostgreSQL for storing likes and views
 
-A blog without a like button, without a proper view counter? Not for me. In my view, this was the most challenging part before I started any development. Even though I had many attempts to become more familiar with the database world, it never stuck in my head for long, and after all, this subject remained mysterious and difficult. And I have to say that connecting a database with views and likes count for posts was a lot easier and more straightforward than I expected.
+A blog without a like button, without a proper view counter? Not for me. In my eyes, this was the most challenging part before I started any development. Even though I had many attempts to become more familiar with the database world, it never stuck in my head for long, and after all, this subject remained mysterious and difficult. And I have to say that connecting a database with views and likes count for posts was a lot easier and more straightforward than I expected.
 
-Since I've been following the trend of "check out the most trendy tools that I haven't used before," the choice of database was pretty obvious - Supabase. This db is often mentioned with Next.js in one sentence, and the promise of good developer experience was appealing to me.
+Since I've been following the trend of "check out the most trendy tools that I haven't used before," the choice of database was pretty obvious - Supabase. This DB is often mentioned with Next.js in one sentence, and the promise of good developer experience was appealing to me.
 
 ![Supabase UI](/img/posts/hello-world-devblog/supabase-ui.png 'Supabase UI, table editor')
 
-A basic connection to db was fairly easy to do. The following code snippet initiates the client-side db instance with the secret keys stored in environment variables. The passed Database type can be generated in the Supabase UI, downloaded, and placed near your other db files. This type generation can be automated, but since I have only one table with several columns, it sounded like an overkill to me.
+A basic connection to db was fairly easy to do. The following code snippet initiates the client-side DB instance with the secret keys stored in environment variables. The passed Database type can be generated in the Supabase UI, downloaded, and placed near your other DB files. This type generation can be automated, but since I have only one table with several columns, it sounded like an overkill to me.
 
 ```ts
 import { createClient } from '@supabase/supabase-js'
@@ -244,7 +244,7 @@ export const supabase = createClient<Database>(
 )
 ```
 
-After exploring several approaches, I found that the easiest way to make a query to db from a React component is to convert it to an async server component, which resulted in the code below.
+After exploring several approaches, I found that the easiest way to make a query to DB from a React component is to convert it to an async server component, which resulted in the code below.
 
 ```tsx
 export const PostsList = async () => {
@@ -256,7 +256,7 @@ export const PostsList = async () => {
 
 With that, I got the data about views and likes. The next step was to add the ability to change these values. Both likes and views are counters, meaning they must only be increased by 1, while all other options should be prohibited. Not only that, this increment logic should be stored on the database side since we cannot trust the client or the server. This sounded like a non-trivial task to me, and google didn't help at all, until I found [this great video](https://www.youtube.com/watch?v=I6nnp9AINJk).
 
-Long story short, this type of problem indeed is solved on the db side by defining custom functions written in plpgsql language (Postgres' SQL extension).
+Long story short, this type of problem indeed is solved on the DB side by defining custom functions written in plpgsql language (Postgres' SQL extension).
 
 ```sql
 declare new_views int4;
@@ -290,9 +290,9 @@ const incrementViewsCounter = React.useCallback(async () => {
 
 ### Giscus for comments
 
-Comments seemed like one of the most resource-consuming things to build if we're talking about MVP of a blog with limited use of the database. Giscus was such a relief for me when I first found it. Giscus wraps the GitHub Discussions API to provide a very convenient way to integrate comments and reactions for your blog with GitHub authentication. And there's a dedicated npm package for React that made the integration even easier.
+Comments seemed like one of the most resource-consuming things to build if we're talking about an MVP of a blog with limited use of database resources. [Giscus](https://giscus.app/) was such a relief for me when I first found it. It wraps the GitHub Discussions API to provide a very convenient way to integrate comments and reactions for your blog with GitHub authentication. And there's a dedicated [npm package for React](https://github.com/giscus/giscus-component) that made the integration even easier.
 
-![UI of the comments section](/img/posts/hello-world-devblog/giscus.jpg 'Illustration of how Giscus works. This widget is lazily loaded and initiaded once user has scrolled down to it. Under the hood everything works as a mirror to GitHub Discussions.')
+![UI of the comments section](/img/posts/hello-world-devblog/giscus.jpg 'Illustration of how Giscus works. This widget is lazily loaded and initiated once the user has scrolled down to it. Under the hood, everything works as a mirror to GitHub Discussions.')
 
 ### Highlight.io for error tracking
 

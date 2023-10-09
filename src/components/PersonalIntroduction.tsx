@@ -7,7 +7,7 @@ import { AtSign, Linkedin, Github, Twitter } from 'lucide-react'
 import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/react'
 import clsx from 'clsx'
 
-const EMAIL = 'yverisan@gmail.com'
+const EMAIL = 'gileorn@gmail.com'
 
 export const PersonalIntroduction = ({ className }: { className?: string }) => (
   <div

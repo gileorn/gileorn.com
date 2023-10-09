@@ -1,5 +1,5 @@
-import { compareDesc } from 'date-fns'
 import React from 'react'
+import { compareDesc } from 'date-fns'
 import { allPosts, Post as PostInterface } from 'contentlayer/generated'
 import { supabase } from '@/db/dbClient'
 import { PostTeaser, Post } from './PostListItem'

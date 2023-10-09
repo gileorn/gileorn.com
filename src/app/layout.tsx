@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   description: 'Personal website and dev blog of Sergei Iakovlev',
 }
 
+export const revalidate = 0
+
 export default function RootLayout({
   children,
 }: {
